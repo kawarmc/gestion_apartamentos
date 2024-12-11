@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    ports:
+      - "15002:15002"  # Mapea el puerto 15002 del contenedor al puerto 15002 del host
+    environment:
+      FLASK_ENV: development
+    depends_on:
+      - db  # Indica que "web" depende de "db" para asegurar que el contenedor db se levanta primero
+    volumes:
+      - .:/app
+
+  db:
+    image: mariadb:latest  # Utiliza la imagen oficial de MariaDB
+    environment:
+      MYSQL_ROOT_PASSWORD: Kawar34Prod_G_B
+      MYSQL_DATABASE: gestion_apartamentos
+      MYSQL_USER: gapartments
+      MYSQL_PASSWORD: GGertDS773_fr11
+    ports:
+      - "3307:3306"  # Mapea el puerto 3306 para que puedas acceder desde el exterior 

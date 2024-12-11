@@ -1,0 +1,8 @@
+# NOTAS DE CODIGO PARA NO IR BUSCANDO:
+
+
+# Crear la base de datos usando SQLAlchemy desde una sesion interactiva de pyton
+from app import create_app, db
+app = create_app()
+with app.app_context():
+    db.create_all()
